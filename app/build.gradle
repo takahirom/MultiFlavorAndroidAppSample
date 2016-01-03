@@ -1,8 +1,8 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1"
 
     defaultConfig {
         minSdkVersion 8
@@ -12,19 +12,19 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 
     productFlavors {
         vanilla {
-            packageName "com.example.multiflavorapp"
+            applicationId "com.example.multiflavorapp"
             buildConfigField "boolean", "IS_SPECIAL", "false"
         }
 
         strawberry {
-            packageName "com.example.multiflavorapp.strawberry"
+            applicationId "com.example.multiflavorapp.strawberry"
             buildConfigField "boolean", "IS_SPECIAL", "true"
         }
     }
